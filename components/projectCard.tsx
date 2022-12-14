@@ -8,18 +8,21 @@ import { green } from "@mui/material/colors";
 interface Props {
     name?: String,
     description?: String
+    website?: String
+    source?: String
 }
 
 
-export default function projectCard({ name, description }: Props) {
+export default function projectCard({ name, description, website, source }: Props) {
     return (
         <Container>
             <Card className={styles.card}>
-                <CardActionArea sx={{ "&:hover": { color: "white" }, height: "300px" }}>
+                <CardActionArea sx={{ "&:hover": { color: "white" }, height: "300px" }}
+                href = {`${website}`}>
                     <CardMedia
                         component="img"
                         height="200px"
-                        image="/images/snake.jpg"
+                        image={`https://raw.githubusercontent.com/navsam9/${name}/master/preview.jpg`}
                         alt="snake"
                     />
                     <CardContent>
@@ -32,7 +35,7 @@ export default function projectCard({ name, description }: Props) {
                     </CardContent>
                 </CardActionArea>
                 <CardActions sx = {{justifyContent: "center", height: "50px"}}>
-                    <Button size="medium" color="primary">
+                    <Button size="medium" color="primary" href = {`${source}`}>
                         &lt;source code&gt;
                     </Button>
                 </CardActions>

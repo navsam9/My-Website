@@ -23,7 +23,11 @@ export default function Home({ githubRepoData }: InferGetStaticPropsType<typeof 
       <div className={utilStyles.projectContainer}>
         {githubRepoData.map((repo: any) => {
           return (
-            <ProjectCard name = {repo.name} description = {repo.description} />
+            <ProjectCard
+              name={repo.name}
+              description={repo.description}
+              website={repo.homepage}
+              source={repo.html_url} />
           )
         }
 
