@@ -1,9 +1,4 @@
-import { ReactNode } from "react";
-import styles from "../styles/projectCard.module.css"
-import Image from 'next/image';
 import { Card, CardMedia, CardContent, Typography, CardActions, Button, CardActionArea, Container } from "@mui/material";
-import { green } from "@mui/material/colors";
-
 
 interface Props {
     name?: String,
@@ -16,7 +11,7 @@ interface Props {
 export default function projectCard({ name, description, website, source }: Props) {
     return (
         <Container>
-            <Card className={styles.card}>
+            <Card sx={{ width: "300px", height: "350px", backgroundColor: "rgba(0, 0, 0, 0.658)"}}>
                 <CardActionArea sx={{ "&:hover": { color: "white" }, height: "300px" }}
                 href = {`${website}`}>
                     <CardMedia
@@ -26,10 +21,10 @@ export default function projectCard({ name, description, website, source }: Prop
                         alt="snake"
                     />
                     <CardContent>
-                        <Typography gutterBottom variant="h5" className={styles.title}>
+                        <Typography gutterBottom variant="h5" sx={{color: "white"}}>
                             {name}
                         </Typography>
-                        <Typography variant="body2" className={styles.description}>
+                        <Typography variant="body2"  sx={{color: "white"}}>
                             {description}
                         </Typography>
                     </CardContent>
@@ -39,11 +34,6 @@ export default function projectCard({ name, description, website, source }: Prop
                         &lt;source code&gt;
                     </Button>
                 </CardActions>
-                {/* <CardActionArea sx={{ "&:hover": { color: "white" }, height: "50%" }}>
-                    <Typography gutterBottom variant="body1" className={styles.source}>
-                        &lt;source code&gt;
-                    </Typography>
-                </CardActionArea> */}
             </Card>
         </Container>
     );
