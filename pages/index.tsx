@@ -24,6 +24,7 @@ export default function Home({ githubRepoData }: InferGetStaticPropsType<typeof 
         {githubRepoData.map((repo: any) => {
           return (
             <ProjectCard
+              key={repo.name}
               name={repo.name}
               description={repo.description}
               website={repo.homepage}
