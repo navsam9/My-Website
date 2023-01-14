@@ -25,7 +25,7 @@ export default function Home({ githubRepoData }: InferGetStaticPropsType<typeof 
 
         {githubRepoData.map((repo: any) => {
           return (
-            <Grid item>
+            <Grid item key={repo.name}>
               <ProjectCard
                 key={repo.name}
                 name={repo.name}
