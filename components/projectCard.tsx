@@ -5,18 +5,18 @@ interface Props {
     description?: String
     website?: String
     source?: String
-    languages?: String[]
+    language?: String
 }
 
 
-export default function projectCard({ name, description, website, source, languages}: Props) {
+export default function projectCard({ name, description, website, source, language}: Props) {
     return (
-        <Card sx={{ width: "300px", height: "350px", backgroundColor: "rgba(0, 0, 0, 0.658)" }}>
-            <CardActionArea sx={{ "&:hover": { color: "white" }, height: "300px" }}
+        <Card sx={{ width: "350px", height: "420px", backgroundColor: "rgba(15,15,15, 0.7)" }}>
+            <CardActionArea sx={{ "&:hover": { color: "white" }, height: "370px" }}
                 href={`${website}`}>
                 <CardMedia
                     component="img"
-                    height="200px"
+                    height="250px"
                     image={`https://raw.githubusercontent.com/navsam9/${name}/master/preview.jpg`}
                     alt="snake"
                 />
@@ -27,8 +27,9 @@ export default function projectCard({ name, description, website, source, langua
                     <Typography variant="body2" sx={{ color: "white" }}>
                         {description}
                     </Typography>
-                    <Typography>
-                        {languages}
+                    <Typography variant="body2" 
+                    sx={{ color: "rgb(180,180,180)", position: "absolute", bottom: "0", right: "16px"}}>
+                        {language}
                     </Typography>
                 </CardContent>
             </CardActionArea>
