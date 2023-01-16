@@ -32,7 +32,7 @@ export default function Home({ githubRepoData }: InferGetStaticPropsType<typeof 
                 description={repo.description}
                 website={repo.homepage}
                 source={repo.html_url}
-                language={repo.language}
+                languages={repo.languages}
                 />
             </Grid>
           )
@@ -49,22 +49,15 @@ export const getStaticProps: GetStaticProps = async () => {
   const githubRepoData: JSON | false = await getGithubRepos();
   const repoLanguages: string[][] = [];
 
-  // if (Array.isArray(githubRepoData)) {
-  //   var count: number = 0;
-  //   githubRepoData.map(async (repo: any) => {
-  //     var languages = await getRepoLanguages(repo.languages_url);
-  //     repoLanguages.push(Object.keys(languages));
-  //     githubRepoData[count].languages = Object.keys(languages);
-  //     count++;
-  //   })
-
-  // }
-
+  // fetches individual repo languages and adds them to collective repo data 
+  if (Array.isArray(githubRepoData)) {
+    const promiseArray = githubRepoData.map( async (repo) => {
+      var languages = await getRepoLanguages(repo.languages_url);
+      repo.languages = Object.keys(languages);
+    })
+    await Promise.all(promiseArray);
+  }
   
-
-
-
-
   return {
     props: {
       githubRepoData

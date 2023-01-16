@@ -5,11 +5,11 @@ interface Props {
     description?: String
     website?: String
     source?: String
-    language?: String
+    languages?: String[]
 }
 
 
-export default function projectCard({ name, description, website, source, language}: Props) {
+export default function projectCard({ name, description, website, source, languages}: Props) {
     return (
         <Card sx={{ width: "350px", height: "420px", backgroundColor: "rgba(15,15,15, 0.7)" }}>
             <CardActionArea sx={{ "&:hover": { color: "white" }, height: "370px" }}
@@ -29,13 +29,13 @@ export default function projectCard({ name, description, website, source, langua
                     </Typography>
                     <Typography variant="body2" 
                     sx={{ color: "rgb(180,180,180)", position: "absolute", bottom: "0", right: "16px"}}>
-                        {language}
+                        {languages?.join(', ')}
                     </Typography>
                 </CardContent>
             </CardActionArea>
             <CardActions sx={{ justifyContent: "center", height: "50px" }}>
                 <Button size="medium" color="primary" href={`${source}`}>
-                    &lt;source code&gt;
+                    &lt;View on GitHub&gt;
                 </Button>
             </CardActions>
         </Card>
