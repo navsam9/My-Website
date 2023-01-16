@@ -34,7 +34,7 @@ export default function projectCard({ name, description, website, source, langua
                 </CardContent>
             </CardActionArea>
             <CardActions sx={{ justifyContent: "center", height: "50px" }}>
-                <Button size="medium" color="primary" href={`${source}`}>
+                <Button size="medium" href={`${source}`} sx={{color: "deepskyblue"}}>
                     &lt;View on GitHub&gt;
                 </Button>
             </CardActions>

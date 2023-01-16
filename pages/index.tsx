@@ -7,7 +7,7 @@ import ProjectCard from '../components/projectCard';
 import { getGithubRepos, getRepoLanguages } from '../lib/projects';
 import utilStyles from '../styles/utils.module.css';
 
-const introduction: string = "I'm a software developer. Here are some of my projects..."
+const introduction: string = "I'm a software engineer. Here are some of my projects..."
 
 
 export default function Home({ githubRepoData }: InferGetStaticPropsType<typeof getStaticProps>) {
